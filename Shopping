@@ -1,0 +1,69 @@
+#......................................................................
+#New Grocery list
+#Kohen Johnston
+#2024-03-15
+#......................................................................
+
+#imports
+import random
+
+
+
+#defs
+def discount_price(cost, discount):
+    discount_cool = cost * (1 - discount / 100) # math for discounts
+    return discount_cool
+    
+    
+    
+
+
+#lists    
+cost_effective = []   #stores where cost of items are held 
+the_list = [] # stores where items are held
+
+while True:
+
+    food_and_things = input("Hello, what would you like to put on your list? :")
+    the_list.append(food_and_things) # adds anything you say to the_list
+    print(food_and_things) # prints out the_list to show you what you have
+    
+    cost = float(input("Ok and what would the cost be? :"))
+    cost_effective.append(cost) #adds the cost of an item to cost_effective
+    print(cost) #prints the costs that you have added
+    break
+# main loop
+while True:
+
+    cont_or_stp = input("would like to add more? :")
+    if cont_or_stp == "yes":
+        
+        more = input("What else?")
+        the_list.append(more)
+        
+        moores_law = input ("And the cost?")
+        cost_effective.append(moores_law)
+        
+        print("the list is now",the_list)
+        print("And the cost is now", cost_effective)
+        
+   
+    elif cont_or_stp =="no":
+        break
+    else:
+        print("Please answer 'yes' or 'no'.")
+            
+da_count = input("Okay and do you have a discount?: ")
+if da_count.lower() == "yes":
+    discount = float(input("Okay, and what is the discount? :"))
+    discounted_costs = [discount_price(cost, discount) for cost in cost_effective]
+    print("The discounted prices are:", discounted_costs)
+    print("Your final list and cost are",the_list , discounted_costs ) # prints the final list and discouunted price
+
+elif da_count.lower() == "no":
+    print("Okay.") 
+    print("Your final list and cost are",the_list, cost_effective) # prints the final list and normal price
+else:
+    print("Please answer 'yes' or 'no'.")
+            
+
